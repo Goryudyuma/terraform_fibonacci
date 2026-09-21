@@ -1,18 +1,21 @@
 variable "n" {
-  type  = number
-  const = true
+  description = "残りの更新回数"
+  type        = number
+  const       = true
 }
 
 variable "a" {
-  type    = number
-  const   = true
-  default = 0
+  description = "現在の項"
+  type        = number
+  const       = true
+  default     = 0
 }
 
 variable "b" {
-  type    = number
-  const   = true
-  default = 1
+  description = "次の項"
+  type        = number
+  const       = true
+  default     = 1
 }
 
 module "p" {
@@ -24,5 +27,6 @@ module "p" {
 }
 
 output "result" {
-  value = var.n > 0 ? module.p.result : var.a
+  description = "指定回数の更新後の項"
+  value       = var.n > 0 ? module.p.result : var.a
 }
