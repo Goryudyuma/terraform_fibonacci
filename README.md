@@ -15,7 +15,7 @@ Terraform 1.15.0 以降が必要です。このバージョンで[モジュー�
 export TF_VAR_n=10
 
 terraform init &&
-  echo 'module.fibonacci.result' | terraform console
+  echo 'module.f.result' | terraform console
 ```
 
 出力は `55` です。[`terraform console`][console] で評価するため、`terraform apply` は不要です。
@@ -41,7 +41,7 @@ terraform init &&
     └── stop/main.tf            # モジュール読み込みの終端
 ```
 
-モジュールの階層と読み込み・評価のコストは `n` に応じて増えるため、大きな `n` の計算には向きません。
+再帰で連結される名前が長くなりすぎないよう、モジュールの呼び出し名は1文字にしています。モジュールの階層と読み込み・評価のコストは `n` に応じて増えるため、大きな `n` の計算には向きません。
 
 [release]: https://github.com/hashicorp/terraform/blob/v1.15.0/CHANGELOG.md
 [console]: https://developer.hashicorp.com/terraform/cli/commands/console

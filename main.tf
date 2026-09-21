@@ -14,7 +14,7 @@ variable "n" {
   }
 }
 
-module "fibonacci" {
+module "f" {
   source = "./modules/fibonacci"
 
   n = var.n
@@ -22,5 +22,5 @@ module "fibonacci" {
 
 output "result" {
   description = "フィボナッチ数列の第n項（第0項は0、第1項は1）"
-  value       = module.fibonacci.result
+  value       = module.f.result
 }

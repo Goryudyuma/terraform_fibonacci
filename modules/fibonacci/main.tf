@@ -18,7 +18,7 @@ variable "b" {
   default     = 1
 }
 
-module "next" {
+module "p" {
   source = var.n > 0 ? "./" : "../stop"
 
   n = max(0, var.n - 1)
@@ -28,5 +28,5 @@ module "next" {
 
 output "result" {
   description = "指定回数の更新後の項"
-  value       = var.n > 0 ? module.next.result : var.a
+  value       = var.n > 0 ? module.p.result : var.a
 }
