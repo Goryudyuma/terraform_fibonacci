@@ -3,7 +3,7 @@ terraform {
 }
 
 variable "n" {
-  description = "計算するフィボナッチ数列の項番号（0以上の整数）。"
+  description = "計算するフィボナッチ数列の項番号（0以上の整数）"
   type        = number
   const       = true
   nullable    = false
@@ -21,6 +21,6 @@ module "fibonacci" {
 }
 
 output "result" {
-  description = "フィボナッチ数列の第n項（第0項は0、第1項は1）。"
+  description = "フィボナッチ数列の第n項（第0項は0、第1項は1）"
   value       = module.fibonacci.result
 }
