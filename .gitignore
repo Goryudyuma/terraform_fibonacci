@@ -1,1 +1,13 @@
-.terraform
+# Terraform の作業ディレクトリと生成物。
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# ローカルの入力値。
+terraform.tfvars
+terraform.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json

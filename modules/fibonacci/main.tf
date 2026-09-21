@@ -1,21 +1,25 @@
 variable "n" {
-  type  = number
-  const = true
+  description = "残りの更新回数。"
+  type        = number
+  const       = true
 }
 
 variable "a" {
-  type    = number
-  const   = true
-  default = 0
+  description = "現在の項。"
+  type        = number
+  const       = true
+  default     = 0
 }
 
 variable "b" {
-  type    = number
-  const   = true
-  default = 1
+  description = "次の項。"
+  type        = number
+  const       = true
+  default     = 1
 }
 
-module "p" {
+module "next" {
+  # n = 0 では子モジュールを持たない stop に切り替え、読み込みを止める。
   source = var.n > 0 ? "./" : "../stop"
 
   n = max(0, var.n - 1)
@@ -24,5 +28,6 @@ module "p" {
 }
 
 output "result" {
-  value = var.n > 0 ? module.p.result : var.a
+  description = "指定回数の更新後の項。"
+  value       = var.n > 0 ? module.next.result : var.a
 }
