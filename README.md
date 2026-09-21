@@ -12,10 +12,7 @@ Terraform 1.15.0 以降が必要です。このバージョンで[モジュー�
 リポジトリのルートで実行します（Bash / Zsh）。`n` には0以上の整数を指定してください。
 
 ```sh
-export TF_VAR_n=10
-
-terraform init &&
-  echo 'module.f.result' | terraform console
+export TF_VAR_n=10 && terraform init && echo 'module.f.result' | terraform console
 ```
 
 出力は `55` です。[`terraform console`][console] で評価するため、`terraform apply` は不要です。
